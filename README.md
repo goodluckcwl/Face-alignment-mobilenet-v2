@@ -36,6 +36,7 @@ Data augmentation is important to the performance of face alignment. I have trie
 
 ## Performance
 The performance on 300W is not good enough. May be I need to try more times. If you have any ideas, please contact me or open an issue.
+
 |Method|Input Size|Common|Challenge|Full set|Training Data|
 |------|------|------|------|------|------|
 |VGG-Shadow(With Dropout)|70 * 60|5.66|10.82|6.67|300W|
@@ -43,7 +44,9 @@ The performance on 300W is not good enough. May be I need to try more times. If 
 |Mobilenet-v2-stage2|64 * 64|5.76|8.93|6.39|300W and Menpo|
 
 ## Dataset
+
 |Dataset|Number of images for training|
+|------|-----|
 |300-W|3148|
 |Menpo|12006|
 
