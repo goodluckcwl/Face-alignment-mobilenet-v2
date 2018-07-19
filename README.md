@@ -8,12 +8,12 @@ The most important part of the mobilenet-v2 network is the design of bottleneck.
 |------|------|------|------|------|------|
 |<a href="https://www.codecogs.com/eqnedit.php?latex=64^2&space;\times&space;3" target="_blank"><img src="https://latex.codecogs.com/gif.latex?64^2&space;\times&space;3" title="64^2 \times 3" /></a>|conv2d|-|16|1|2|
 |<a href="https://www.codecogs.com/eqnedit.php?latex=32^2&space;\times&space;16" target="_blank"><img src="https://latex.codecogs.com/gif.latex?32^2&space;\times&space;16" title="32^2 \times 16" /></a>|bottleneck|6|24|1|2|
-|$16^2\times 24$|conv2d|6|24|1|1|
-|$16^2\times 24$|conv2d|6|32|1|2|
-|$8^2\times 32$|conv2d|6|32|1|1|
-|$8^2\times 32$|conv2d|6|64|1|2|
-|$4^2\times 64$|conv2d|6|64|1|1|
-|$4^2\times 64$|inner product|-|200|1|-|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=16^2&space;\times&space;24" target="_blank"><img src="https://latex.codecogs.com/gif.latex?16^2&space;\times&space;24" title="16^2 \times 24" /></a>|conv2d|6|24|1|1|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=16^2&space;\times&space;24" target="_blank"><img src="https://latex.codecogs.com/gif.latex?16^2&space;\times&space;24" title="16^2 \times 24" /></a>|conv2d|6|32|1|2|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=8^2&space;\times&space;32" target="_blank"><img src="https://latex.codecogs.com/gif.latex?8^2&space;\times&space;32" title="8^2 \times 32" /></a>|conv2d|6|32|1|1|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=8^2&space;\times&space;32" target="_blank"><img src="https://latex.codecogs.com/gif.latex?8^2&space;\times&space;32" title="8^2 \times 32" /></a>|conv2d|6|64|1|2|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=4^2&space;\times&space;64" target="_blank"><img src="https://latex.codecogs.com/gif.latex?4^2&space;\times&space;64" title="4^2 \times 64" /></a>|conv2d|6|64|1|1|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=4^2&space;\times&space;64" target="_blank"><img src="https://latex.codecogs.com/gif.latex?4^2&space;\times&space;64" title="4^2 \times 64" /></a>|inner product|-|200|1|-|
 |200|inner product|-|200|1|-|
 |200|inner product|-|50|1|-|
 |50|inner product|-|136|1|-|
