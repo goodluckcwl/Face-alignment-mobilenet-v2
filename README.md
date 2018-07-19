@@ -34,15 +34,15 @@ The pre-train models can be downloaded from [baiduyun](https://pan.baidu.com/s/1
 ## Demo
 I write a demo to view the alignment results.
 To run the domo, please do:
-1. Download and compile [caffe](https://github.com/goodluckcwl/caffe-windows-ms). Compile pycaffe.
+1. Download and compile [caffe](https://github.com/goodluckcwl/custom-caffe). Compile pycaffe.
 2. Modified the path in demo.py.
 3. Run.
 
 ![](https://github.com/goodluckcwl/DeepAlignment/raw/master/demo.png)
 
 ## Dependence
-To use my code to reproduce the results, you need to use my [caffe](https://github.com/goodluckcwl/caffe-windows-ms). I have added some useful layers.
-- [My PyCaffe](https://github.com/goodluckcwl/caffe-windows-ms)
+To use my code to reproduce the results, you need to use my [caffe](https://github.com/goodluckcwl/custom-caffe). I have added some useful layers.
+- [My PyCaffe](https://github.com/goodluckcwl/custom-caffe)
 - Opencv
 - [MTCNN](https://github.com/kpzhang93/MTCNN_face_detection_alignment)
 
