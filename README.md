@@ -1,4 +1,4 @@
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
 # DeepAlignment
 Face Alignment by MobileNetv2. Note that MTCNN is used to provided the input bbox. You need to modify the path of images in order to run the demo. 
 The structure of mobilenetv2 is similar to that of https://github.com/tensor-yu/cascaded_mobilenet-v2.
@@ -12,7 +12,7 @@ Data augment is important to the performance of face alignment. I have tried sev
 - Random Flip.
 - Random Shift.
 - Random Scale.
-- Random Rotation. The image is rotated by the degree sampled from $-30 to 30$
+- Random Rotation. The image is rotated by the degree sampled from -30 to 30.
 - Random Noise. Gaussian noise is added to the input images.
 
 ## Performance
