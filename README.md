@@ -7,7 +7,7 @@ The structure of mobilenetv2 is similar to that of https://github.com/tensor-yu/
 The training data including:
 - Training data of 300W dataset
 - Training data of Menpo dataset
-### Data Augment
+### Data Augmentation
 Data augment is important to the performance of face alignment. I have tried several kinds of data augment method, including:
 - Random Flip.
 - Random Shift.
