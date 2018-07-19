@@ -1,7 +1,27 @@
 
-# DeepAlignment
+# Face-alignment-mobilenet-v2
 Face Alignment by MobileNetv2. Note that MTCNN is used to provided the input bbox. You need to modify the path of images in order to run the demo. 
-The structure of mobilenetv2 is similar to that of https://github.com/tensor-yu/cascaded_mobilenet-v2.
+
+## Network Structure
+The most important part of the mobilenet-v2 network is the design of bottleneck. In our experiments, we crop the face image and resized it to 64*64, which is the input of the network. Based on this, we can design the structure of our customized mobilenet-v2 for facial landmark lacalization.
+
+|Input|Operator|t|channels|n|stride|
+|------|------|------|------|------|------|
+|$64^2\times 3$|conv2d|-|16|1|2|
+|$32^2\times 16$|bottleneck|6|24|1|2|
+|$16^2\times 24$|conv2d|6|24|1|1|
+|$16^2\times 24$|conv2d|6|32|1|2|
+|$8^2\times 32$|conv2d|6|32|1|1|
+|$8^2\times 32$|conv2d|6|64|1|2|
+|$4^2\times 64$|conv2d|6|64|1|1|
+|$4^2\times 64$|inner product|-|200|1|-|
+|$200$|inner product|-|200|1|-|
+|$200$|inner product|-|50|1|-|
+|$50$|inner product|-|136|1|-|
+
+Note that this structure has two features:
+ - Use LeakyReLU rather than ReLU.
+ - Use bottleneck embedding.
 
 ## Training
 The training data including:
