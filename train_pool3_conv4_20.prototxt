@@ -1,0 +1,425 @@
+# This file gives the CNN model to predict all landmark in LEVEL-1
+name: "landmark_1_F"
+
+layer{
+    name:"input_train"
+    top:"data"
+    top:"landmark"
+    type:"HDF5Data"
+    hdf5_data_param{
+        source: "train.txt"
+        batch_size: 256
+    }
+    include{
+        phase: TRAIN
+    }
+}
+
+layer{
+    name:"input_test"
+    top:"data"
+    top:"landmark"
+    type:"HDF5Data"
+    hdf5_data_param{
+        source: "val.txt"
+        batch_size: 256
+    }
+    include{
+        phase: TEST
+    }
+}
+
+layer{
+	name: "noise"
+	bottom: "data"
+	top: "data"
+	type: "Noise"
+	noise_param{
+		gaussian_std: 0.001
+		bias: 0
+	}
+}
+
+layer {
+    name: "conv11"
+    type: "Convolution"
+    bottom: "data"
+    top: "conv11"
+    param {
+        lr_mult: 1
+    }
+    convolution_param {
+        num_output: 64
+        kernel_size: 3
+        pad: 1
+        stride: 1 
+        bias_term: false
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu11"
+    type: "ReLU"
+    bottom: "conv11"
+    top: "conv11"
+}
+layer {
+    name: "conv12"
+    type: "Convolution"
+    bottom: "conv11"
+    top: "conv12"
+    param {
+        lr_mult: 1
+    }
+    convolution_param {
+        num_output: 64
+        kernel_size: 3
+        pad: 1
+        stride: 1 
+        bias_term: false
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu12"
+    type: "ReLU"
+    bottom: "conv12"
+    top: "conv12"
+}
+
+layer {
+    name: "pool1"
+    type: "Pooling"
+    bottom: "conv12"
+    top: "pool1"
+    pooling_param {
+        pool: MAX
+        kernel_size: 2
+        stride: 2
+    }
+}
+layer {
+    name: "conv21"
+    type: "Convolution"
+    bottom: "pool1"
+    top: "conv21"
+    param {
+        lr_mult: 1
+    }
+    convolution_param {
+        num_output: 128
+        kernel_size: 3
+        pad: 1
+        stride: 1
+        bias_term: false
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu21"
+    type: "ReLU"
+    bottom: "conv21"
+    top: "conv21"
+}
+layer {
+    name: "conv22"
+    type: "Convolution"
+    bottom: "conv21"
+    top: "conv22"
+    param {
+        lr_mult: 1
+    }
+    convolution_param {
+        num_output: 128
+        kernel_size: 3
+        pad: 1
+        stride: 1
+        bias_term: false
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu22"
+    type: "ReLU"
+    bottom: "conv22"
+    top: "conv22"
+}
+
+layer {
+    name: "pool2"
+    type: "Pooling"
+    bottom: "conv22"
+    top: "pool2"
+    pooling_param {
+        pool: MAX
+        kernel_size: 2
+        stride: 2
+    }
+}
+layer {
+    name: "conv31"
+    type: "Convolution"
+    bottom: "pool2"
+    top: "conv31"
+    param {
+        lr_mult: 1
+    }
+    convolution_param {
+        num_output: 192
+        kernel_size: 3
+        pad: 1
+        stride: 1
+        bias_term: false
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu31"
+    type: "ReLU"
+    bottom: "conv31"
+    top: "conv31"
+}
+layer {
+    name: "conv32"
+    type: "Convolution"
+    bottom: "conv31"
+    top: "conv32"
+    param {
+        lr_mult: 1
+    }
+    convolution_param {
+        num_output: 192
+        kernel_size: 3
+        pad: 1
+        stride: 1
+        bias_term: false
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu32"
+    type: "ReLU"
+    bottom: "conv32"
+    top: "conv32"
+}
+layer {
+    name: "pool3"
+    type: "Pooling"
+    bottom: "conv32"
+    top: "pool3"
+    pooling_param {
+        pool: MAX
+        kernel_size: 2
+        stride: 2
+    }
+}
+layer {
+    name: "conv4"
+    type: "Convolution"
+    bottom: "pool3"
+    top: "conv4"
+    param {
+        lr_mult: 1
+    }
+    param {
+        lr_mult: 2
+    }
+    convolution_param {
+        num_output: 256
+        kernel_size: 3
+        stride: 1
+        pad: 0
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu4"
+    type: "ReLU"
+    bottom: "conv4"
+    top: "conv4"
+}
+
+layer {
+    name: "fc1"
+    type: "InnerProduct"
+    bottom: "conv4"
+    top: "fc1"
+    param {
+        lr_mult: 1
+    }
+    param {
+        lr_mult: 2
+    }
+    inner_product_param {
+        num_output: 256
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+layer {
+    name: "relu_fc1"
+    type: "ReLU"
+    bottom: "fc1"
+    top: "fc1"
+}
+layer {
+    name: "drop1"
+    type: "Dropout"
+    bottom: "fc1"
+    top: "fc1"
+    dropout_param{
+        dropout_ratio: 0
+    }
+}
+
+layer {
+    name: "fc2"
+    type: "InnerProduct"
+    bottom: "fc1"
+    top: "fc2"
+    param {
+        lr_mult: 1
+    }
+    param {
+        lr_mult: 2
+    }
+    inner_product_param {
+        num_output: 136
+        weight_filler {
+            type: "xavier"
+        }
+        bias_filler {
+            type: "constant"
+        }
+    }
+}
+
+
+
+layer {
+    name: "error"
+    type: "EuclideanLoss"
+    bottom: "fc2"
+    bottom: "landmark"
+    top: "loss"
+    include {
+        phase: TEST
+    }
+}
+layer {
+    name: "main_loss"
+    type: "WeightEuclideanLoss"
+    bottom: "fc2"
+    bottom: "landmark"
+    top: "main_loss"
+    loss_weight: 1
+    weight_euclidean_loss_param{
+    	main_weight: 1
+    	contour_weight: 0
+    	coarse_weight: 0
+        normalized: 0
+    }
+    include {
+        phase: TEST
+    }
+}
+layer {
+    name: "contour_loss"
+    type: "WeightEuclideanLoss"
+    bottom: "fc2"
+    bottom: "landmark"
+    top: "contour_loss"
+    loss_weight: 0
+    weight_euclidean_loss_param{
+        main_weight: 0
+        contour_weight: 1
+        coarse_weight: 0
+        normalized: 0
+    }
+    include {
+        phase: TEST
+    }
+}
+layer {
+    name: "coarse_loss"
+    type: "WeightEuclideanLoss"
+    bottom: "fc2"
+    bottom: "landmark"
+    top: "coarse_loss"
+    loss_weight: 1
+    weight_euclidean_loss_param{
+        main_weight: 0
+        contour_weight: 0
+        coarse_weight: 1
+        normalized: 0
+    }
+    include {
+        phase: TEST
+    }
+}
+#layer {
+#    name: "loss"
+#    type: "EuclideanLoss"
+#    bottom: "fc2"
+#    bottom: "landmark"
+#    top: "loss"
+#    include {
+#        phase: TRAIN
+#    }
+#}
+layer {
+    name: "loss"
+    type: "WeightEuclideanLoss"
+    bottom: "fc2"
+    bottom: "landmark"
+    top: "loss"
+    loss_weight: 1
+    weight_euclidean_loss_param{
+    	main_weight: 1
+    	contour_weight: 1
+    	coarse_weight: 1
+        normalized: 0
+    }
+    include {
+        phase: TRAIN
+    }
+}
