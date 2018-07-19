@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[39]:
+# This demo is for mobilenet-v2.
 
 
 import sys
