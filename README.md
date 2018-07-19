@@ -2,7 +2,7 @@
 Face Alignment by [MobileNetv2](https://arxiv.org/abs/1801.04381). Note that MTCNN is used to provided the input boundingbox. You need to modify the path of images in order to run the demo. 
 
 ## Network Structure
-The most important part of the mobilenet-v2 network is the design of bottleneck. In our experiments, we crop the face image by the boundingbox and resized it to <a href="https://www.codecogs.com/eqnedit.php?latex=64&space;\times&space;64" target="_blank"><img src="https://latex.codecogs.com/gif.latex?64&space;\times&space;64" title="64 \times 64" /></a>, which is the input size of the network. Based on this, we can design the structure of our customized mobilenet-v2 for facial landmark lacalization. Note that the receptive field is a key factor to the design of the network.
+The most important part of the mobilenet-v2 network is the design of bottleneck. In our experiments, we crop the face image by the boundingbox and resize it to <a href="https://www.codecogs.com/eqnedit.php?latex=64&space;\times&space;64" target="_blank"><img src="https://latex.codecogs.com/gif.latex?64&space;\times&space;64" title="64 \times 64" /></a>, which is the input size of the network. Based on this, we can design the structure of our customized mobilenet-v2 for facial landmark lacalization. Note that the receptive field is a key factor to the design of the network.
 
 |Input|Operator|t|channels|n|stride|
 |------|------|------|------|------|------|
