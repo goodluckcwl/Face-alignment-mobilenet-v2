@@ -37,7 +37,7 @@ To run the domo, please do:
 1. Download and compile [caffe](https://github.com/goodluckcwl/caffe-windows-ms). Compile pycaffe.
 2. Modified the path in demo.py.
 3. Run.
-
+![](https://github.com/goodluckcwl/DeepAlignment/raw/master/demo.png)
 ## Dependence
 To use my code to reproduce the results, you need to use my [caffe](https://github.com/goodluckcwl/caffe-windows-ms). I have added some useful layers.
 - [My PyCaffe](https://github.com/goodluckcwl/caffe-windows-ms)
