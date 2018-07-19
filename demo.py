@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# This demo is for mobilenet-v2.
+# This demo is for face-alignment-mobilenet-v2.
 
 
 import sys
@@ -119,7 +119,7 @@ if __name__ == '__main__':
     transformer.set_transpose('data', (2, 0, 1))  # h,w,c-> c,h,w
 
     # 读取图片
-    data_dir = 'img'
+    data_dir = 'images'
     imglist = os.listdir(data_dir)
     im_name = 'image_0006.png'
     im_dir = os.path.join(data_dir, im_name)
