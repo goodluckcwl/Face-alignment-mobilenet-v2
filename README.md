@@ -1,3 +1,4 @@
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 # DeepAlignment
 Face Alignment by MobileNetv2. Note that MTCNN is used to provided the input bbox. You need to modify the path of images in order to run the demo. 
 The structure of mobilenetv2 is similar to that of https://github.com/tensor-yu/cascaded_mobilenet-v2.
@@ -30,11 +31,11 @@ Result on 300W
 ## Dependence
 - PyCaffe
 - Opencv
-- [MTCNN]https://github.com/kpzhang93/MTCNN_face_detection_alignment
+- [MTCNN](https://github.com/kpzhang93/MTCNN_face_detection_alignment)
 
 
 
 
 ## Reference:
-- [Cascaded-Mobilenet-v2]https://github.com/tensor-yu/cascaded_mobilenet-v2
-- [MTCNN]https://github.com/kpzhang93/MTCNN_face_detection_alignment
+- [Cascaded-Mobilenet-v2](https://github.com/tensor-yu/cascaded_mobilenet-v2)
+- [MTCNN](https://github.com/kpzhang93/MTCNN_face_detection_alignment)
