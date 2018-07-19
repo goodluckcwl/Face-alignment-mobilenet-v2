@@ -25,8 +25,9 @@ The performance on 300W is not good enough. May be I need to try more times. If 
 |Mobilenet-v2-stage1|64 * 64|6.07|10.60|6.96|300W and Menpo|
 |Mobilenet-v2-stage2|64 * 64|5.76|8.93|6.39|300W and Menpo|
 
-Result on 300W
-![](https://github.com/goodluckcwl/DeepAlignment/raw/master/sample.png)
+## Result on 300W
+![](https://github.com/goodluckcwl/DeepAlignment/raw/master/sample.jpg)
+The ground truth landmarks is donated by white color while the predicted ones blue.
 
 ## Dependence
 - PyCaffe
