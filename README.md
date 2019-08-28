@@ -55,7 +55,7 @@ The performance on 300W is not good enough. May be I need to try more times. If 
 The ground truth landmarks is donated by white color while the predicted ones blue.
 
 ## Pre-train Models
-The pre-train models can be downloaded from [baiduyun](https://pan.baidu.com/s/1wYycQbmz3CxBQw9KgJkxEA).
+The pre-train models can be downloaded from [baiduyun](https://pan.baidu.com/s/1wYycQbmz3CxBQw9KgJkxEA) or [GoogleDisk](https://drive.google.com/open?id=1Nw9s4sZ5tyS6MDMm-DUIdIrSEgw-kH0B).
 
 ## Demo
 I write a demo to view the alignment results. Besides, the yaw, row and pitch parameters are estimated by the predicted landmarks.
